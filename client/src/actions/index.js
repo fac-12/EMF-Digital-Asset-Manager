@@ -1,1 +1,2 @@
-import axios from 'axios';
+export { getAllTags } from "./assetsActions";
+export { getAllAssets } from "./assetsActions";
