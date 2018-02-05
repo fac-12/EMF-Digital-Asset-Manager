@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-exports.CardDisplay = ({ assets }) => {
+export const CardDisplay = ({ assets }) => {
   return Object.values(assets).map(asset => {
     return (
       <li key={asset.id}>
