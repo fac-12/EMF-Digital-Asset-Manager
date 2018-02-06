@@ -1,19 +1,20 @@
 import React from "react";
-
-export default ({ assets }) =>
-  Object.values(assets)
+import { Link } from "react-router-dom";
+export default ({ assets }) => {
+  return Object.values(assets)
     .slice(0, 4)
     .map(asset => (
       <li key={asset.id}>
-        <section className="card">
-          <img src="" />
-          <span>{asset.tag}</span>
-          <div>
-            <span>{asset.name}</span>
-            <a>
+        <Link to={`/Dashboard/${asset.id}`}>
+          <section className="card">
+            <img src="" />
+            <span>{asset.tag}</span>
+            <div>
+              <span>{asset.name}</span>
               <img src="" />
-            </a>
-          </div>
-        </section>
+            </div>
+          </section>
+        </Link>
       </li>
     ));
+};
