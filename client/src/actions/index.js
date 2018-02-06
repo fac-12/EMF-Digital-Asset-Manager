@@ -4,7 +4,6 @@ export { getAllTags } from "./assetsActions";
 export { getAllAssets } from "./assetsActions";
 
 export const storeValue = (value, callback) => dispatch => {
-  console.log(value);
   dispatch({ type: SEARCH_VALUE, payload: value });
   callback();
 };
