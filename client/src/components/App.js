@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { BrowserRouter, Route } from "react-router-dom";
 import LandingPage from "./LandingPage/LandingPage";
 import DashboardPage from "./Dashboard/DashboardPage";
+import SinglePage from "./SinglePage/SinglePageDisplay";
 import * as actions from "../actions";
 
 class App extends Component {
@@ -17,6 +18,7 @@ class App extends Component {
         <div>
           <Route exact path="/" component={LandingPage} />
           <Route exact path="/Dashboard" component={DashboardPage} />
+          <Route exact path="/Dashboard/:id" component={SinglePage} />
         </div>
       </BrowserRouter>
     );
