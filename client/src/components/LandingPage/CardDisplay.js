@@ -5,13 +5,15 @@ export default ({ assets }) =>
     .slice(0, 4)
     .map(asset => (
       <li key={asset.id}>
-        <img src="" />
-        <span>{asset.tag}</span>
-        <div>
-          <span>{asset.name}</span>
-          <a>
-            <img src="" />
-          </a>
-        </div>
+        <section className="card">
+          <img src="" />
+          <span>{asset.tag}</span>
+          <div>
+            <span>{asset.name}</span>
+            <a>
+              <img src="" />
+            </a>
+          </div>
+        </section>
       </li>
     ));

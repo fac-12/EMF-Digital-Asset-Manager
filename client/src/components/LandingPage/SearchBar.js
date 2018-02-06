@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import * as actions from "../../actions";
 import { connect } from "react-redux";
 import { Link, withRouter } from "react-router-dom";
-
 class SearchBar extends Component {
   constructor(props) {
     super(props);
@@ -26,10 +25,17 @@ class SearchBar extends Component {
 
   render() {
     return (
-      <form onSubmit={this.onFormSubmit}>
-        <input value={this.state.term} onChange={this.onInputChange} />
+      <form onSubmit={this.onFormSubmit} className="search-container">
+        <input
+          value={this.state.term}
+          onChange={this.onInputChange}
+          placeholder={this.props.placeholder}
+          className="search-bar"
+        />
         <span>
-          <button type="submit"> submit </button>
+          <button type="submit" className="submit-btn">
+            submit
+          </button>
         </span>
       </form>
     );

@@ -13,8 +13,10 @@ class LandingPage extends Component {
   render() {
     return (
       <div>
-        <SearchBar />
-        <CardDisplay assets={this.props.assets} />
+        <SearchBar placeholder="How can I be more..." />
+        <ul className="card-container">
+          <CardDisplay assets={this.props.assets} />
+        </ul>
       </div>
     );
   }
