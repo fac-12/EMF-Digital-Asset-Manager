@@ -1,0 +1,9 @@
+.group-div{
+  display: flex;
+
+
+}
+
+.group-div li{
+flex-direction: column;
+}

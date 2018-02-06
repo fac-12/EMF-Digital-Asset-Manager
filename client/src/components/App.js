@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { BrowserRouter, Route } from "react-router-dom";
 import LandingPage from "./LandingPage/LandingPage";
+import SinglePageDisplay from "./SinglePage/SinglePageDisplay";
 import * as actions from "../actions";
 
 class App extends Component {
@@ -13,7 +14,10 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <Route path="/" component={LandingPage} />
+        <div>
+          {/* <Route exact path="/singlepage" component={SinglePageDisplay} /> */}
+          <Route exact path="/" component={LandingPage} />
+        </div>
       </BrowserRouter>
     );
   }
