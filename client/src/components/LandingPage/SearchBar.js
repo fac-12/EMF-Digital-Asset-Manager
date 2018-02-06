@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import * as actions from "../../actions";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 
 class SearchBar extends Component {
   constructor(props) {
@@ -18,7 +18,9 @@ class SearchBar extends Component {
 
   onFormSubmit = event => {
     event.preventDefault();
-
+    this.props.storeValue(this.state.term, () => {
+      this.props.history.push("/Dashboard");
+    });
     this.setState({ term: "" });
   };
 
@@ -36,4 +38,4 @@ class SearchBar extends Component {
 
 const mapStateToProps = ({ assets, tags }) => ({ assets, tags });
 
-export default connect(mapStateToProps, actions)(SearchBar);
+export default withRouter(connect(mapStateToProps, actions)(SearchBar));
