@@ -1,15 +1,19 @@
 import React from "react";
 
 export default ({ assets }) =>
-  Object.values(assets).map(asset => (
-    <li key={asset.id}>
-      <img src="" />
-      <span>{asset.tag}</span>
-      <div>
-        <span>{asset.name}</span>
-        <a>
+  Object.values(assets)
+    .slice(0, 4)
+    .map(asset => (
+      <li key={asset.id}>
+        <section className="card">
           <img src="" />
-        </a>
-      </div>
-    </li>
-  ));
+          <span>{asset.tag}</span>
+          <div>
+            <span>{asset.name}</span>
+            <a>
+              <img src="" />
+            </a>
+          </div>
+        </section>
+      </li>
+    ));
