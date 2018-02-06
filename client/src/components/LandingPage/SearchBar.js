@@ -1,21 +1,39 @@
-// import React from "react";
-// import { Link } from "react-router-dom";
+import React, { Component } from "react";
+import * as actions from "../../actions";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
-// export default ({ searchValue, onValueSearch, submitSearch }) => {
-//   const
+class SearchBar extends Component {
+  constructor(props) {
+    super(props);
 
-//   return (
-//     <div className="search-bar">
-//       <form onSubmit={submitSearch}>
-//         <input
-//           type="text"
-//           value={searchValue}
-//           onChange={onChange}
-//           placeholder="How Can I be More..."
-//           className="search-input"
-//         />
-//         <Link to="/Dashboard"> Search </Link>
-//       </form>
-//     </div>
-//   );
-// };
+    this.state = {
+      term: ""
+    };
+  }
+
+  onInputChange = event => {
+    this.setState({ term: event.target.value });
+  };
+
+  onFormSubmit = event => {
+    event.preventDefault();
+
+    this.setState({ term: "" });
+  };
+
+  render() {
+    return (
+      <form onSubmit={this.onFormSubmit}>
+        <input value={this.state.term} onChange={this.onInputChange} />
+        <span>
+          <button type="submit"> submit </button>
+        </span>
+      </form>
+    );
+  }
+}
+
+const mapStateToProps = ({ assets, tags }) => ({ assets, tags });
+
+export default connect(mapStateToProps, actions)(SearchBar);
