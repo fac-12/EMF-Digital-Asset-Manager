@@ -1,7 +1,7 @@
 import React from "react";
 
-export default ({ assets }) =>
-  Object.values(assets).map(asset => (
+export default ({ assets }) => {
+  return Object.values(assets).map(asset => (
     <li key={asset.id}>
       <img src="" />
       <span>{asset.tag}</span>
@@ -13,3 +13,4 @@ export default ({ assets }) =>
       </div>
     </li>
   ));
+};
