@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import * as actions from "../../actions";
 
-class LandingPage extends Component {
+class DashboardPage extends Component {
   constructor(props) {
     super(props);
   }
@@ -12,4 +12,4 @@ class LandingPage extends Component {
   }
 }
 const mapStateToProps = ({ assets }) => ({ assets });
-export default connect(mapStateToProps, actions)(LandingPage);
+export default connect(mapStateToProps, actions)(DashboardPage);
