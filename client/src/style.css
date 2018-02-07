@@ -20,18 +20,29 @@ a {
   color: inherit;
 }
 
+/* Header styles */
+
+.header {
+  height: 1rem;
+  background-color: #fff;
+}
+
+.header-logo {
+  width: 15rem;
+  margin: 1rem;
+}
+
 /* Styles foe Search bar */
 
 .search-container {
   display: flex;
   justify-content: center;
   align-content: center;
-  margin-top: 15rem;
 }
 
 .search-bar {
   width: 20rem;
-  height: 2.5rem;
+  height: 3rem;
   border-radius: 0.4rem 0rem 0rem 0.4rem;
   background-color: #f2f2f2;
   box-shadow: none;
@@ -41,7 +52,7 @@ a {
 
 .submit-btn {
   width: 5rem;
-  height: 2.5rem;
+  height: 3rem;
   border-radius: 0rem 0.4rem 0.4rem 0rem;
   background-color: #f2c94c;
   border: none;
@@ -53,7 +64,7 @@ a {
 .card-container {
   display: flex;
   justify-content: space-around;
-  margin-top: 10rem;
+  margin-top: 20rem;
 }
 
 .card {
@@ -62,4 +73,51 @@ a {
   height: 10rem;
   padding: 0.5rem;
   border-radius: 0.5rem;
+}
+
+/* landingPage styling */
+
+.landingPage-wrapper {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin-top: 5rem;
+}
+
+.landingPage-container {
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+}
+
+.landingPage-container > h1 {
+  font-size: 3rem;
+  font-weight: 200;
+  margin: 15rem 0 5rem 0;
+  color: #f2c94c;
+}
+
+.landingPage-container > h4 {
+  font-size: 2rem;
+  margin: 0 0 0.5rem 0;
+  color: #fff;
+}
+
+.landingPage-container > p {
+  margin: 0 0 3rem 0;
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.landing-section {
+  background: url("./images/bg.jpg");
+  background-position: center;
+  background-size: cover;
+  height: calc(100vh - 6rem);
+}
+
+.layer {
+  background-color: rgba(75, 86, 160, 0.5);
+  height: 100%;
 }

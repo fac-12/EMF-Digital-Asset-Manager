@@ -3,10 +3,6 @@ import { connect } from "react-redux";
 import * as actions from "../../actions";
 
 class LandingPage extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return <div>anything</div>;
   }
