@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import * as actions from "../../actions";
 import { connect } from "react-redux";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 class SearchBar extends Component {
   constructor(props) {
     super(props);
