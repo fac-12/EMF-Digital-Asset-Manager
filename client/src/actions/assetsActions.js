@@ -4,7 +4,7 @@ import { GET_TAGS, GET_ASSETS } from "./types";
 export const getAllTags = () => async dispatch => {
   try {
     const tags = await axios.get(
-      `https://cors-anywhere.herokuapp.com/http://staging.circulareconomy.space/api/tags/`
+      `https://cors-anywhere.herokuapp.com/http://staging.circulareconomy.space/api/tag-groups/`
     );
     dispatch({ type: GET_TAGS, payload: tags.data });
   } catch (e) {

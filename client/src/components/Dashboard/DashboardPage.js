@@ -1,15 +1,29 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { sortBy, mapValues } from "lodash";
 import * as actions from "../../actions";
+import SearchBar from "../LandingPage/SearchBar";
+import FilterOptions from "./FilterOptions";
+import { Title } from "../../styles";
 
-class LandingPage extends Component {
-  constructor(props) {
-    super(props);
-  }
-
+class DashboardPage extends Component {
   render() {
-    return <div>anything</div>;
+    const tags = mapValues(this.props.tags, o => o.name);
+    const tagNames = Object.values(tags);
+    console.log(tagNames.sort());
+    return (
+      <div>
+        <SearchBar />
+        <ul className="tags-container">
+          <li>
+            <h1> All </h1>
+          </li>
+          <Title> Hello </Title>
+          {/* <FilterOptions tags={this.props.tags} /> */}
+        </ul>
+      </div>
+    );
   }
 }
-const mapStateToProps = ({ assets }) => ({ assets });
-export default connect(mapStateToProps, actions)(LandingPage);
+const mapStateToProps = ({ assets, tags }) => ({ assets, tags });
+export default connect(mapStateToProps, actions)(DashboardPage);
