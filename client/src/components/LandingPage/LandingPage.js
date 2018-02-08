@@ -3,15 +3,19 @@ import { connect } from "react-redux";
 import CardDisplay from "./CardDisplay";
 import * as actions from "../../actions";
 import SearchBar from "./SearchBar";
+import LandingPageInfo from "./LandingPageInfo";
 
 class LandingPage extends Component {
   render() {
     return (
-      <div>
-        <SearchBar placeholder="How can I be more..." />
-        <ul className="card-container">
-          <CardDisplay assets={this.props.assets} />
-        </ul>
+      <div className="landing-section">
+        <div className="layer">
+          <LandingPageInfo />
+          <SearchBar placeholder="How can I be more..." />
+          <ul className="card-container">
+            <CardDisplay assets={this.props.assets} />
+          </ul>
+        </div>
       </div>
     );
   }

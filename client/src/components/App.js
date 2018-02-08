@@ -4,6 +4,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 import LandingPage from "./LandingPage/LandingPage";
 import DashboardPage from "./Dashboard/DashboardPage";
 import SinglePage from "./SinglePage/SinglePageDisplay";
+import Header from "./Header";
 import * as actions from "../actions";
 
 class App extends Component {
@@ -16,6 +17,7 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div>
+          <Header />
           <Route exact path="/" component={LandingPage} />
           <Route exact path="/Dashboard" component={DashboardPage} />
           <Route exact path="/Dashboard/:id" component={SinglePage} />

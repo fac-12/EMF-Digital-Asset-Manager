@@ -15,11 +15,7 @@ class DashboardPage extends Component {
       <div>
         <SearchBar />
         <ul className="tags-container">
-          <li>
-            <h1> All </h1>
-          </li>
-          <Title> Hello </Title>
-          {/* <FilterOptions tags={this.props.tags} /> */}
+          <FilterOptions tags={this.props.tags} />
         </ul>
       </div>
     );
