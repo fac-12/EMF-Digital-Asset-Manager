@@ -118,6 +118,6 @@ a {
 }
 
 .layer {
-  background-color: rgba(75, 86, 160, 0.5);
   height: 100%;
+  background-color: rgba(75, 86, 160, 0.5);
 }

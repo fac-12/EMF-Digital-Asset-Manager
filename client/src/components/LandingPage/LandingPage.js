@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import CardDisplay from "./CardDisplay";
+import CardDisplay from "../SinglePage/CardDisplay";
 import * as actions from "../../actions";
 import SearchBar from "./SearchBar";
 import LandingPageInfo from "./LandingPageInfo";
