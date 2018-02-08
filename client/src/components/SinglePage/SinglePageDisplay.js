@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import fileImgs from "../../helper/fileImages";
-import pdf from "./pdf.svg";
+// import pdf from "../../images/pdf.svg";
 
 class SinglePageDisplay extends Component {
   render() {
@@ -16,9 +16,10 @@ class SinglePageDisplay extends Component {
   console.log(typeof fileImgs[filetype]);
     return (
       <div className="single-main-div">
+        <div className="single-page-display">
         <div className="main-left-div">
-          <div>Name:{name}</div>
-          <img className="img-container" src={pdf}/>
+          <div><h3>{name}</h3></div>
+          <img className="img-container" src={fileImgs[filetype]}/>
 
         </div>
 
@@ -26,7 +27,7 @@ class SinglePageDisplay extends Component {
           <div className="top-right-div">
           <h3> Description</h3>
         {uploaded_at?(<div>Uploaded At:{(new Date(uploaded_at).toLocaleDateString())}</div>):null}
-        {last_edit_at?(<div>Last Edited:{last_edit_at}</div>): null}
+        {last_edit_at?(<div>Last Edited::{(new Date(last_edit_at).toLocaleDateString())}</div>):null}
         {link?(<div>Link To File:{link}</div>):null}
         {locations.length? locations.map(location => <div key={location}>{location}</div>):null}
       </div>
@@ -35,9 +36,10 @@ class SinglePageDisplay extends Component {
             <h3>Categories</h3>
             {tags.length? tags.map(tag => <span key={tag}>{tag}{" "}</span>):null}
           </div>
-
-            {file ? (<a className="link-button" href={file} target="_blank">view </a>) : (<a href={link} target="_blank">view </a>) }
+          {file ? (<a className="link-button" href={file} target="_blank">view </a>) : (<a href={link} target="_blank">view </a>) }
         </div>
+
+      </div>
     </div>
 
 
