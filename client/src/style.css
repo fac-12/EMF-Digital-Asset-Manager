@@ -132,3 +132,39 @@ a {
   height: 100%;
   background-color: rgba(75, 86, 160, 0.5);
 }
+
+.img-container{
+  width: 10rem;
+  height:10rem;
+}
+
+.single-main-div{
+  display:flex;
+  margin-top: 7rem;
+}
+
+.main-left-div{
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.3rem;
+}
+
+.main-right-div{
+  justify-content: center;
+  align-items: center;
+}
+.top-right-div{
+margin:0.5rem 0.5rem 0.5rem 0.5rem;
+ }
+ .bottom-right-div{
+ margin:0.5rem 0.5rem 0.5rem 0.5rem;
+ }
+
+.link-button{
+background-color:white;
+border:1px solid red;
+border-radius:0.5rem;
+color:black;
+margin-right:1rem;
+padding:0.5rem 1rem 0.5rem 1rem;
+ }
