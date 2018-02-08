@@ -34,15 +34,22 @@ class DashboardPage extends Component {
     );
 
     return (
-      <div>
-        <input
-          type="text"
-          value={this.state.search}
-          onChange={this.updateSearch}
-        />
+      <div className="dashboard-container">
+        <div className="dashboard-search-bar-container">
+          <input
+            className="dashboard-search-bar"
+            type="text"
+            value={this.state.search}
+            onChange={this.updateSearch}
+            placeholder="How can I be more..."
+          />
+        </div>
         <ul className="tags-container">
           <FilterOptions tags={this.props.tags} />
-          <CardDisplay assets={filteredAssets} end={"10"} />
+        </ul>
+
+        <ul className="dashboard-card-container">
+          <CardDisplay assets={filteredAssets} end={"20"} />
         </ul>
       </div>
     );
