@@ -35,7 +35,7 @@ class DashboardPage extends Component {
         />
         <ul className="tags-container">
           <FilterOptions tags={this.props.tags} />
-          {<CardDisplay assets={filteredAssets} end={"10"} />}
+          <CardDisplay assets={filteredAssets} end={"10"} />
         </ul>
       </div>
     );
