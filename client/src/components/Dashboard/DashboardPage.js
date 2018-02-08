@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { sortBy, filter } from "lodash";
+import {  filter } from "lodash";
 import * as actions from "../../actions";
 import SearchBar from "../LandingPage/SearchBar";
 import FilterOptions from "./FilterOptions";
@@ -19,7 +19,7 @@ class DashboardPage extends Component {
     this.setState({ search: e.target.value });
   };
   render() {
-    console.log(this.props.assets);
+
     let filteredAssets = filter(
       this.props.assets,
       asset =>
@@ -35,7 +35,7 @@ class DashboardPage extends Component {
         />
         <ul className="tags-container">
           <FilterOptions tags={this.props.tags} />
-          {/* <CardDisplay assets={filteredAssets} end={"10"} /> */}
+          {<CardDisplay assets={filteredAssets} end={"10"} />}
         </ul>
       </div>
     );
