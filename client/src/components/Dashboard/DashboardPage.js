@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import {  filter } from "lodash";
+import { filter } from "lodash";
 import * as actions from "../../actions";
 import SearchBar from "../LandingPage/SearchBar";
 import FilterOptions from "./FilterOptions";
@@ -18,12 +18,19 @@ class DashboardPage extends Component {
   updateSearch = e => {
     this.setState({ search: e.target.value });
   };
-  render() {
 
+  render() {
     let filteredAssets = filter(
       this.props.assets,
       asset =>
-        asset.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
+        asset.name
+          .toLowerCase()
+          .indexOf(
+            (this.state.search.length != 0
+              ? this.state.search
+              : this.props.search.searchValue || ""
+            ).toLowerCase()
+          ) !== -1
     );
 
     return (
@@ -41,5 +48,9 @@ class DashboardPage extends Component {
     );
   }
 }
-const mapStateToProps = ({ assets, tags }) => ({ assets, tags });
+const mapStateToProps = ({ assets, tags, search }) => ({
+  assets,
+  tags,
+  search
+});
 export default connect(mapStateToProps, actions)(DashboardPage);
