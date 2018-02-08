@@ -13,7 +13,7 @@ class LandingPage extends Component {
           <LandingPageInfo />
           <SearchBar placeholder="How can I be more..." />
           <ul className="card-container">
-            <CardDisplay assets={this.props.assets} />
+            <CardDisplay assets={this.props.assets} end={4} />
           </ul>
         </div>
       </div>
