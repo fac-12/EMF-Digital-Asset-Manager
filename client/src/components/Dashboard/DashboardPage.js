@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { filter } from "lodash";
 import * as actions from "../../actions";
-import SearchBar from "../LandingPage/SearchBar";
 import FilterOptions from "./FilterOptions";
 
 import CardDisplay from "../LandingPage/CardDisplay";
@@ -26,7 +25,7 @@ class DashboardPage extends Component {
         asset.name
           .toLowerCase()
           .indexOf(
-            (this.state.search.length != 0
+            (this.state.search.length !== 0
               ? this.state.search
               : this.props.search.searchValue || ""
             ).toLowerCase()
