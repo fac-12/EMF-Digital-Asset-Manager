@@ -3,6 +3,6 @@ import Logo from "../images/logo.png";
 
 export default props => (
   <header className="header">
-    <img src={Logo} className="header-logo" />
+    <img src={Logo} className="header-logo" alt="EMF logo" />
   </header>
 );
