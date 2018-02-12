@@ -3,8 +3,7 @@ import { connect } from "react-redux";
 import { filter } from "lodash";
 import * as actions from "../../actions";
 import FilterOptions from "./FilterOptions";
-
-import CardDisplay from "../LandingPage/CardDisplay";
+import { Link } from "react-router-dom";
 
 class DashboardPage extends Component {
   constructor(props) {
@@ -19,6 +18,8 @@ class DashboardPage extends Component {
   };
 
   render() {
+    const { tags, subTags, assets } = this.props;
+    console.log(assets);
     let filteredAssets = filter(
       this.props.assets,
       asset =>
@@ -48,15 +49,41 @@ class DashboardPage extends Component {
         </ul>
 
         <ul className="dashboard-card-container">
-          <CardDisplay assets={filteredAssets} end={"20"} />
+          {Object.values(filteredAssets)
+            .slice(0, 20)
+            .map(asset => {
+              return (
+                <li key={asset.id}>
+                  <Link to={`/Dashboard/${asset.id}`}>
+                    <section className="card">
+                      <img src="" />
+                      <div>
+                        <span>{asset.name}</span>
+                        <img src="" />
+                      </div>
+                      <br />
+                      {asset.tags.length
+                        ? asset.tags.slice(0, 3).map(tag => (
+                            <span key={tag}>
+                              <li className="red">{subTags[tag].name}</li>
+                            </span>
+                          ))
+                        : null}
+                    </section>
+                  </Link>
+                </li>
+              );
+            })}
         </ul>
       </div>
     );
   }
 }
-const mapStateToProps = ({ assets, tags, search }) => ({
+
+const mapStateToProps = ({ assets, tags, search, subTags }) => ({
   assets,
   tags,
+  subTags,
   search
 });
 export default connect(mapStateToProps, actions)(DashboardPage);

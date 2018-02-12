@@ -52,15 +52,20 @@ class SinglePageDisplay extends Component {
               {link ? <div>Link To File:{link}</div> : null}
               {locations.length
                 ? locations.map(location => (
-                    <div key={location}>{location}</div>
-                  ))
+                  <div key={location}>{location}</div>
+                ))
                 : null}
             </div>
 
             <div className="bottom-right-div">
-              <h3>Categories</h3>
+              {tags.length ? <h3>Categories</h3> : null}
               {tags.length
-                ? tags.map(tag => <span key={tag}>{tag} </span>)
+                ? tags.map(tag => (
+                  // how we displayed the sub Catergories
+                  <div>
+                    <span key={tag}> {this.props.subTags[tag].name} </span>
+                  </div>
+                ))
                 : null}
             </div>
             {file ? (
@@ -79,5 +84,9 @@ class SinglePageDisplay extends Component {
   }
 }
 
-const mapStateToProps = ({ assets }) => ({ assets });
+const mapStateToProps = ({ assets, subTags, tags }) => ({
+  assets,
+  subTags,
+  tags
+});
 export default connect(mapStateToProps)(SinglePageDisplay);

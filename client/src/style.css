@@ -152,23 +152,20 @@ a {
   background-color: rgba(75, 86, 160, 0.5);
 }
 
-.img-container{
+.img-container {
   width: 10rem;
-  height:10rem;
+  height: 10rem;
 }
 /*calc(100vh - 6rem);*/
-.single-main-div{
+.single-main-div {
   height: 100vh;
   background-color: #556780;
   background-size: cover;
   margin-top: 5rem;
-
 }
-.single-page-display{
-  display:flex;
-  width:50%;
-
-
+.single-page-display {
+  display: flex;
+  width: 50%;
 }
 
 /* Dashboard styling */
@@ -185,44 +182,48 @@ a {
   justify-content: space-between;
 }
 
-.main-left-div{
+.main-left-div {
   justify-content: center;
   align-items: center;
   margin-right: 0.3rem;
   margin-top: 1rem;
-  width:50%;
+  width: 50%;
   background-color: white;
   border-radius: 0.5rem;
 }
 
-.main-right-div{
+.main-right-div {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-    margin-top: 1rem;
-    width:50%;
+  margin-top: 1rem;
+  width: 50%;
 }
-.top-right-div{
-margin:0.5rem 0.5rem 0.5rem 0.5rem;
-background-color: #E0E0E0;
-border-radius: 0.5rem;
-height:50%;
-width:50%;
- }
- .bottom-right-div{
- margin:0.5rem 0.5rem 0.5rem 0.5rem;
- height:50%;
- width:50%;
- background-color: C4C4C4;
- border-radius: 0.5rem;
- }
+.top-right-div {
+  margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+  background-color: #e0e0e0;
+  border-radius: 0.5rem;
+  height: 50%;
+  width: 50%;
+}
+.bottom-right-div {
+  margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+  height: 50%;
+  width: 50%;
+  background-color: C4C4C4;
+  border-radius: 0.5rem;
+}
 
-.link-button{
-background-color:white;
-border:1px solid red;
-border-radius:0.5rem;
-color:black;
-margin-right:1rem;
-padding:0.5rem 1rem 0.5rem 1rem;
- }
+.link-button {
+  background-color: white;
+  border: 1px solid red;
+  border-radius: 0.5rem;
+  color: black;
+  margin-right: 1rem;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+}
+
+.red {
+  color: red;
+}
