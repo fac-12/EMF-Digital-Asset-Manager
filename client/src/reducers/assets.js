@@ -5,7 +5,7 @@ export default function(state = {}, action) {
   switch (action.type) {
   case GET_ASSETS:
     if (action.payload) {
-      return _.mapKeys(action.payload, "id");
+      return Object.values(_.mapKeys(action.payload, "id"));
     }
     break;
   default:

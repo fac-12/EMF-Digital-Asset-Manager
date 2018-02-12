@@ -9,17 +9,61 @@ class DashboardPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      search: ""
+      search: "",
+      localAssets: ""
     };
+    this.addingCategoryToSubtags = this.addingCategoryToSubtags.bind(this);
+    this.addingCategoryToAsset = this.addingCategoryToAsset.bind(this);
   }
 
   updateSearch = e => {
     this.setState({ search: e.target.value });
   };
 
+  addingCategoryToSubtags(subTags, groupTag) {
+    return subTags.map(elemSubTags =>
+      Object.assign(elemSubTags, {
+        category: groupTag.filter(
+          elemGroupTags => elemSubTags.group === elemGroupTags.id
+        )[0].name
+      })
+    );
+  }
+
+  addingCategoryToAsset(assets, subTags) {
+    return assets.map(
+      asset =>
+        asset.tags.length > 0
+          ? Object.assign(asset, {
+              Category: subTags
+                .filter(subTagElem => asset.tags.includes(subTagElem.id))
+                .reduce((acc, cur) => acc.concat(cur.category), [])
+            })
+          : {}
+    );
+  }
+
+  componentDidMount() {
+    const localAssets = this.addingCategoryToAsset(
+      Array.from(this.props.assets),
+      this.addingCategoryToSubtags(
+        Array.from(this.props.subTags),
+        Array.from(this.props.tags)
+      )
+    );
+  }
+
   render() {
     const { tags, subTags, assets } = this.props;
-    console.log(assets);
+    console.log(
+      this.addingCategoryToAsset(
+        Array.from(this.props.assets),
+        this.addingCategoryToSubtags(
+          Array.from(this.props.subTags),
+          Array.from(this.props.tags)
+        )
+      )
+    );
     let filteredAssets = filter(
       this.props.assets,
       asset =>
