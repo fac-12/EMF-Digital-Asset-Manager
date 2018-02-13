@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import fileImgs from "../../helper/fileImages";
+import fileImgs from "./fileImages";
 // import pdf from "../../images/pdf.svg";
-
+const image = {
+  src:fileImgs
+}
 class SinglePageDisplay extends Component {
   render() {
     const { id } = this.props.match.params;
@@ -21,7 +23,7 @@ class SinglePageDisplay extends Component {
       locations,
       tags
     } = assets[id];
-
+   console.log(fileImgs[filetype]);
     return (
       <div className="single-main-div">
         <div className="single-page-display">
@@ -31,8 +33,8 @@ class SinglePageDisplay extends Component {
             </div>
             <img
               className="img-container"
-              src={fileImgs[filetype]}
-              alt={`filetype ${filetype}`}
+              src={image.src[filetype]}
+
             />
           </div>
 
