@@ -41,9 +41,6 @@ const addingCategoryToAsset = createSelector(
 export const filterAssets = createSelector(
   [getFilter, addingCategoryToAsset],
   (assetsFilters, assets) => {
-    if (!assets[0].category) {
-      return ["hello"];
-    }
     assets = assets.filter(asset => asset.hasOwnProperty("id"));
     switch (assetsFilters) {
       case "BIOCYCLE":
