@@ -7,7 +7,7 @@ const getTags = state =>
 const getSubTags = state =>
   Object.keys(state.subTags).length === 0 ? null : state.subTags;
 const getFilter = state => state.filters;
-
+const getState = state => state.search;
 const addingCategoryToAsset = createSelector(
   [getAssets, getTags, getSubTags],
   (assets, groupTag, subTags) => {
@@ -37,6 +37,27 @@ const addingCategoryToAsset = createSelector(
     );
   }
 );
+
+const searchByTerm = createSelector(
+  [getFilter, getAssets],
+  (assetFilter,assets)=> {
+    assets = assets.filter(asset => asset.hasOwnProperty("id"));
+    if(assetFilter.searchTerm.length > 0){
+      return _.filter(assets, asset =>
+       asset.name
+         .toLowerCase()
+         .indexOf(
+           (assetFilter.search.length !== 0
+             ? assetFilter.search
+             : state.search.searchValue || ""
+           ).toLowerCase()
+         ) !== -1
+   )  ;
+      )
+    }
+  }
+
+)
 
 export const filterAssets = createSelector(
   [getFilter, addingCategoryToAsset],
