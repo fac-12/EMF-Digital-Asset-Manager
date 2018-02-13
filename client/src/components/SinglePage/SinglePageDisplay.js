@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import fileImgs from "./fileImages";
-// import pdf from "../../images/pdf.svg";
-const image = {
-  src:fileImgs
-}
+// import fileImgs from "./fileImages";
+import pdf from "./pdf.svg";
+import mp4 from "./video-player.svg";
+import zip from "./zip.svg"
+import picture from "./picture.svg"
+
+
 class SinglePageDisplay extends Component {
   render() {
     const { id } = this.props.match.params;
@@ -24,6 +26,38 @@ class SinglePageDisplay extends Component {
       tags
     } = assets[id];
    console.log(fileImgs[filetype]);
+
+renderImage() {
+  switch (filetype) {
+              case "video/mp4": {
+                  return (<img className="img-container"  src={mp4}  />);
+              }
+     case "application/pdf": {
+                  return (<img className="img-container"  src={pdf}  />);
+              }
+     case "video/webm": {
+                  return (  <img className="img-container" src={webm}  />);
+              }
+     case "application/zip": {
+                  return (  <img className="img-container"  src={zip}  />);
+              }
+     case "image/jpeg": {
+                  return (  <img className="img-container"  src={picture}  />);
+              }
+
+     case  null: {
+          return (  <img className="img-container"  src={link}  />);
+              }
+
+     case  "": {
+                  return (  <img className="img-container"  src={link}  />);
+              }
+              default: {
+                  return <div>No asset</div>;
+              }
+          }
+      }
+
     return (
       <div className="single-main-div">
         <div className="single-page-display">
@@ -31,11 +65,7 @@ class SinglePageDisplay extends Component {
             <div>
               <h3>{name}</h3>
             </div>
-            <img
-              className="img-container"
-              src={image.src[filetype]}
-
-            />
+              {this.renderImage()}
           </div>
 
           <div className="main-right-div">
