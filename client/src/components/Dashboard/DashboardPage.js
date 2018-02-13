@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { filter } from "lodash";
 import * as actions from "../../actions";
 import FilterOptions from "./FilterOptions";
-import { addingCategoryToAsset } from "../../selectors/filters";
+import { filterAssets } from "../../selectors/filters";
 import CardDisplay from "../LandingPage/CardDisplay";
 
 class DashboardPage extends Component {
@@ -18,46 +18,11 @@ class DashboardPage extends Component {
     this.setState({ search: e.target.value });
   };
 
+  onFilter = e => {
+    this.props.setFilter(e.target.id);
+  };
+
   render() {
-    console.log("Dashboard", this.props.assets);
-    // const assets = (assets, subTags, groupTag) => {
-    //   console.log("subtags", Object.values(subTags));
-    //   console.log("assets", Object.values(assets));
-    //   console.log("groupTag", Object.values(groupTag));
-    //   return assets.map(
-    //     asset =>
-    //       asset.tags.length > 0
-    //         ? Object.assign(asset, {
-    //             Category: Object.values(subTags)
-    //               .map(elemSubTags =>
-    //                 Object.assign(elemSubTags, {
-    //                   category: Object.values(groupTag).filter(
-    //                     elemGroupTags => elemSubTags.group === elemGroupTags.id
-    //                   )[0].name
-    //                 })
-    //               )
-    //               .filter(subTagElem => asset.tags.includes(subTagElem.id))
-    //               .reduce((acc, cur) => acc.concat(cur.category), [])
-    //           })
-    //         : {}
-    //   );
-    // };
-
-    // console.log(assets(this.props.assets, this.props.subTags, this.props.tags));
-
-    // let filteredAssets = filter(
-    //   this.props.assets,
-    //   asset =>
-    //     asset.name
-    //       .toLowerCase()
-    //       .indexOf(
-    //         (this.state.search.length !== 0
-    //           ? this.state.search
-    //           : this.props.search.searchValue || ""
-    //         ).toLowerCase()
-    //       ) !== -1
-    // );
-
     return (
       <div className="dashboard-container">
         <div className="dashboard-search-bar-container">
@@ -70,11 +35,11 @@ class DashboardPage extends Component {
           />
         </div>
         <ul className="tags-container">
-          <FilterOptions tags={this.props.tags} />
+          <FilterOptions tags={this.props.tags} onClick={this.onFilter} />
         </ul>
 
         <ul className="dashboard-card-container">
-          {/*<CardDisplay assets={filteredAssets} end={"20"} />*/}
+          <CardDisplay assets={this.props.assets} end={"20"} />
         </ul>
       </div>
     );
@@ -82,7 +47,7 @@ class DashboardPage extends Component {
 }
 
 const mapStateToProps = state => ({
-  assets: addingCategoryToAsset(state),
+  assets: filterAssets(state),
   tags: state.tags,
   search: state.search,
   subTags: state.subTags
