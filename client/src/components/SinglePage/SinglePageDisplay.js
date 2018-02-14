@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import fileImgs from "../../helper/fileImages";
-// import pdf from "../../images/pdf.svg";
+import renderImage from "../../helper/fileImages";
+
+
 
 class SinglePageDisplay extends Component {
+
   render() {
     const { id } = this.props.match.params;
-    const { assets } = this.props;
+    const { assets,subTags } = this.props;
 
     if (!assets[id]) {
       return <div>loading</div>;
@@ -22,6 +24,7 @@ class SinglePageDisplay extends Component {
       tags
     } = assets[id];
 
+
     return (
       <div className="single-main-div">
         <div className="single-page-display">
@@ -29,11 +32,7 @@ class SinglePageDisplay extends Component {
             <div>
               <h3>{name}</h3>
             </div>
-            <img
-              className="img-container"
-              src={fileImgs[filetype]}
-              alt={`filetype ${filetype}`}
-            />
+              {renderImage({filetype})}
           </div>
 
           <div className="main-right-div">
@@ -46,7 +45,7 @@ class SinglePageDisplay extends Component {
               ) : null}
               {last_edit_at ? (
                 <div>
-                  Last Edited::{new Date(last_edit_at).toLocaleDateString()}
+                  Last Edited:{new Date(last_edit_at).toLocaleDateString()}
                 </div>
               ) : null}
               {link ? <div>Link To File:{link}</div> : null}
@@ -60,7 +59,7 @@ class SinglePageDisplay extends Component {
             <div className="bottom-right-div">
               <h3>Categories</h3>
               {tags.length
-                ? tags.map(tag => <span key={tag}>{tag} </span>)
+                ? tags.map(tag => <span key={tag}>{subTags[tag].name}{" "} </span>)
                 : null}
             </div>
             {file ? (
@@ -79,5 +78,5 @@ class SinglePageDisplay extends Component {
   }
 }
 
-const mapStateToProps = ({ assets }) => ({ assets });
+const mapStateToProps = ({ assets,subTags }) => ({ assets,subTags });
 export default connect(mapStateToProps)(SinglePageDisplay);
