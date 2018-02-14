@@ -1,13 +1,16 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-// import fileImgs from "./fileImages";
-import pdf from "./pdf.svg";
-import mp4 from "./video-player.svg";
-import zip from "./zip.svg"
-import picture from "./picture.svg"
+import renderImage from "../../helper/fileImages";
+// import pdf from "../../images/pdf.svg";
+// import mp4 from "../../images/video-player.svg";
+// import zip from "../../images/zip.svg";
+// import picture from "../../images/picture.svg";
+// import webm from "../../images/video-player.svg";
+// import link from "../../images/link.svg";
 
 
 class SinglePageDisplay extends Component {
+
   render() {
     const { id } = this.props.match.params;
     const { assets } = this.props;
@@ -25,38 +28,7 @@ class SinglePageDisplay extends Component {
       locations,
       tags
     } = assets[id];
-   console.log(fileImgs[filetype]);
 
-renderImage() {
-  switch (filetype) {
-              case "video/mp4": {
-                  return (<img className="img-container"  src={mp4}  />);
-              }
-     case "application/pdf": {
-                  return (<img className="img-container"  src={pdf}  />);
-              }
-     case "video/webm": {
-                  return (  <img className="img-container" src={webm}  />);
-              }
-     case "application/zip": {
-                  return (  <img className="img-container"  src={zip}  />);
-              }
-     case "image/jpeg": {
-                  return (  <img className="img-container"  src={picture}  />);
-              }
-
-     case  null: {
-          return (  <img className="img-container"  src={link}  />);
-              }
-
-     case  "": {
-                  return (  <img className="img-container"  src={link}  />);
-              }
-              default: {
-                  return <div>No asset</div>;
-              }
-          }
-      }
 
     return (
       <div className="single-main-div">
@@ -65,7 +37,7 @@ renderImage() {
             <div>
               <h3>{name}</h3>
             </div>
-              {this.renderImage()}
+              {renderImage({filetype})}
           </div>
 
           <div className="main-right-div">
