@@ -5,19 +5,13 @@ import * as actions from "../../actions";
 import FilterOptions from "./FilterOptions";
 import { filterAssets } from "../../selectors/filters";
 import CardDisplay from "../LandingPage/CardDisplay";
-
+import SearchBar from "../LandingPage/SearchBar";
 class DashboardPage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      search: ""
-    };
+  componentDidMount() {
+    this.props.storeValueFromLandingPage("", () => {
+      return;
+    });
   }
-
-  updateSearch = e => {
-    this.storeValueFromDashboardPage(e.target.value);
-    this.setState({ search: e.target.value });
-  };
 
   onFilter = e => {
     this.props.setFilter(e.target.id);
@@ -27,13 +21,7 @@ class DashboardPage extends Component {
     return (
       <div className="dashboard-container">
         <div className="dashboard-search-bar-container">
-          <input
-            className="dashboard-search-bar"
-            type="text"
-            value={this.state.value}
-            onChange={this.updateSearch}
-            placeholder="How can I be more..."
-          />
+          <SearchBar />
         </div>
         <ul className="tags-container">
           <FilterOptions tags={this.props.tags} onClick={this.onFilter} />
@@ -48,10 +36,8 @@ class DashboardPage extends Component {
 }
 
 const mapStateToProps = state => ({
-  assets: filterAssets(state),
+  assets: state.assets.length === 0 ? state.assets : filterAssets(state),
   tags: state.tags,
-
-  searchTermFromDashboardPage: state.searchTermFromDashboardPage,
   searchTermFromLandingPage: state.searchTermFromLandingPage,
   subTags: state.subTags
 });
