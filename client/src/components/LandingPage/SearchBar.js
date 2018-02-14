@@ -17,7 +17,7 @@ class SearchBar extends Component {
 
   onFormSubmit = event => {
     event.preventDefault();
-    this.props.storeValue(this.state.term, () => {
+    this.props.storeValueFromLandingPage(this.state.term, () => {
       this.props.history.push("/Dashboard");
     });
     this.setState({ term: "" });

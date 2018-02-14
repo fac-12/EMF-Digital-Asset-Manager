@@ -1,19 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import renderImage from "../../helper/fileImages";
-// import pdf from "../../images/pdf.svg";
-// import mp4 from "../../images/video-player.svg";
-// import zip from "../../images/zip.svg";
-// import picture from "../../images/picture.svg";
-// import webm from "../../images/video-player.svg";
-// import link from "../../images/link.svg";
-
 
 class SinglePageDisplay extends Component {
-
   render() {
     const { id } = this.props.match.params;
-    const { assets,subTags } = this.props;
+    const { assets, subTags } = this.props;
 
     if (!assets[id]) {
       return <div>loading</div>;
@@ -29,7 +21,6 @@ class SinglePageDisplay extends Component {
       tags
     } = assets[id];
 
-
     return (
       <div className="single-main-div">
         <div className="single-page-display">
@@ -37,7 +28,7 @@ class SinglePageDisplay extends Component {
             <div>
               <h3>{name}</h3>
             </div>
-              {renderImage({filetype})}
+            {renderImage({ filetype })}
           </div>
 
           <div className="main-right-div">
@@ -64,7 +55,7 @@ class SinglePageDisplay extends Component {
             <div className="bottom-right-div">
               <h3>Categories</h3>
               {tags.length
-                ? tags.map(tag => <span key={tag}>{subTags[tag].name}{" "} </span>)
+                ? tags.map(tag => <span key={tag}>{subTags[tag].name} </span>)
                 : null}
             </div>
             {file ? (
@@ -83,5 +74,5 @@ class SinglePageDisplay extends Component {
   }
 }
 
-const mapStateToProps = ({ assets,subTags }) => ({ assets,subTags });
+const mapStateToProps = ({ assets, subTags }) => ({ assets, subTags });
 export default connect(mapStateToProps)(SinglePageDisplay);
