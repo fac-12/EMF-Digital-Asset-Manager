@@ -19,21 +19,21 @@ const addingCategoryToAsset = createSelector(
       asset =>
         asset.tags.length > 0
           ? Object.assign(asset, {
-            category: Object.values(subTags)
-              .map(elemSubTags =>
-                Object.assign(elemSubTags, {
-                  category:
+              category: Object.values(subTags)
+                .map(elemSubTags =>
+                  Object.assign(elemSubTags, {
+                    category:
                       groupTag.length === 0
                         ? {}
                         : Object.values(groupTag).filter(
-                          elemGroupTags =>
-                            elemSubTags.group === elemGroupTags.id
-                        )[0].name
-                })
-              )
-              .filter(subTagElem => asset.tags.includes(subTagElem.id))
-              .reduce((acc, cur) => acc.concat(cur.category), [])
-          })
+                            elemGroupTags =>
+                              elemSubTags.group === elemGroupTags.id
+                          )[0].name
+                  })
+                )
+                .filter(subTagElem => asset.tags.includes(subTagElem.id))
+                .reduce((acc, cur) => acc.concat(cur.category), [])
+            })
           : {}
     );
   }
@@ -42,74 +42,74 @@ const addingCategoryToAsset = createSelector(
 const filterBySearchTerm = createSelector(
   [getSearchTermFromLandingpage, addingCategoryToAsset],
   (searchTermFromLandingpage, assets) =>
-    assets.filter(
-      asset =>
-        Object.keys(asset).length === 0
-          ? false
-          : asset.name
+    assets.filter(asset => {
+      console.log("filters", searchTermFromLandingpage);
+      return Object.keys(asset).length === 0
+        ? false
+        : asset.name
             .toLowerCase()
             .includes(
-              searchTermFromLandingpage
-                ? searchTermFromLandingpage.toLowerCase()
+              searchTermFromLandingpage.searchValue
+                ? searchTermFromLandingpage.searchValue.toLowerCase()
                 : ""
-            )
-    )
+            );
+    })
 );
 
 export const filterAssets = createSelector(
   [getFilter, filterBySearchTerm],
   (assetsFilters, assets) => {
     switch (assetsFilters) {
-    case "BIOCYCLE":
-      return _.filter(assets, asset => asset.category.includes("BIOCYCLE"));
-    case "BUILT ENVIRONMENT":
-      return _.filter(assets, asset =>
-        asset.category.includes("BUILT ENVIRONMENT")
-      );
+      case "BIOCYCLE":
+        return _.filter(assets, asset => asset.category.includes("BIOCYCLE"));
+      case "BUILT ENVIRONMENT":
+        return _.filter(assets, asset =>
+          asset.category.includes("BUILT ENVIRONMENT")
+        );
 
-    case "BUSINESS":
-      return _.filter(assets, asset => asset.category.includes("BUSINESS"));
+      case "BUSINESS":
+        return _.filter(assets, asset => asset.category.includes("BUSINESS"));
 
-    case "DESIGN":
-      return _.filter(assets, asset => asset.category.includes("DESIGN"));
+      case "DESIGN":
+        return _.filter(assets, asset => asset.category.includes("DESIGN"));
 
-    case "ECONOMICS":
-      return _.filter(assets, asset => asset.category.includes("ECONOMICS"));
+      case "ECONOMICS":
+        return _.filter(assets, asset => asset.category.includes("ECONOMICS"));
 
-    case "EDUCATION (LEARNING)":
-      return _.filter(assets, asset =>
-        asset.category.includes("EDUCATION (LEARNING)")
-      );
+      case "EDUCATION (LEARNING)":
+        return _.filter(assets, asset =>
+          asset.category.includes("EDUCATION (LEARNING)")
+        );
 
-    case "ENERGY":
-      return _.filter(assets, asset => asset.category.includes("ENERGY"));
+      case "ENERGY":
+        return _.filter(assets, asset => asset.category.includes("ENERGY"));
 
-    case "FINANCE & LEGAL":
-      return _.filter(assets, asset =>
-        asset.category.includes("FINANCE & LEGAL")
-      );
+      case "FINANCE & LEGAL":
+        return _.filter(assets, asset =>
+          asset.category.includes("FINANCE & LEGAL")
+        );
 
-    case "GOVERNMENT":
-      return _.filter(assets, asset => asset.category.includes("GOVERNMENT"));
+      case "GOVERNMENT":
+        return _.filter(assets, asset => asset.category.includes("GOVERNMENT"));
 
-    case "MANUFACTURING & ENGINEERING":
-      return _.filter(assets, asset =>
-        asset.category.includes("MANUFACTURING & ENGINEERING")
-      );
+      case "MANUFACTURING & ENGINEERING":
+        return _.filter(assets, asset =>
+          asset.category.includes("MANUFACTURING & ENGINEERING")
+        );
 
-    case "MATERIALS":
-      return _.filter(assets, asset => asset.category.includes("MATERIALS"));
+      case "MATERIALS":
+        return _.filter(assets, asset => asset.category.includes("MATERIALS"));
 
-    case "TECHNICAL CYCLE":
-      return _.filter(assets, asset =>
-        asset.category.includes("TECHNICAL CYCLE")
-      );
+      case "TECHNICAL CYCLE":
+        return _.filter(assets, asset =>
+          asset.category.includes("TECHNICAL CYCLE")
+        );
 
-    case "TECHNOLOGY":
-      return _.filter(assets, asset => asset.category.includes("TECHNOLOGY"));
+      case "TECHNOLOGY":
+        return _.filter(assets, asset => asset.category.includes("TECHNOLOGY"));
 
-    default:
-      return assets;
+      default:
+        return assets;
     }
   }
 );
