@@ -50,7 +50,7 @@ class SinglePageDisplay extends Component {
               ) : null}
               {last_edit_at ? (
                 <div>
-                  Last Edited::{new Date(last_edit_at).toLocaleDateString()}
+                  Last Edited:{new Date(last_edit_at).toLocaleDateString()}
                 </div>
               ) : null}
               {link ? <div>Link To File:{link}</div> : null}
