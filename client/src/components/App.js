@@ -11,6 +11,7 @@ class App extends Component {
   componentDidMount() {
     this.props.getAllTags();
     this.props.getAllAssets();
+    this.props.getAllSubTags();
   }
 
   render() {

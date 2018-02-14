@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { filter } from "lodash";
 import * as actions from "../../actions";
 import FilterOptions from "./FilterOptions";
-
+import { filterAssets } from "../../selectors/filters";
 import CardDisplay from "../LandingPage/CardDisplay";
 
 class DashboardPage extends Component {
@@ -18,20 +18,11 @@ class DashboardPage extends Component {
     this.setState({ search: e.target.value });
   };
 
-  render() {
-    let filteredAssets = filter(
-      this.props.assets,
-      asset =>
-        asset.name
-          .toLowerCase()
-          .indexOf(
-            (this.state.search.length !== 0
-              ? this.state.search
-              : this.props.search.searchValue || ""
-            ).toLowerCase()
-          ) !== -1
-    );
+  onFilter = e => {
+    this.props.setFilter(e.target.id);
+  };
 
+  render() {
     return (
       <div className="dashboard-container">
         <div className="dashboard-search-bar-container">
@@ -44,19 +35,22 @@ class DashboardPage extends Component {
           />
         </div>
         <ul className="tags-container">
-          <FilterOptions tags={this.props.tags} />
+          <FilterOptions tags={this.props.tags} onClick={this.onFilter} />
         </ul>
 
         <ul className="dashboard-card-container">
-          <CardDisplay assets={filteredAssets} end={"20"} />
+          <CardDisplay assets={this.props.assets} end={"20"} />
         </ul>
       </div>
     );
   }
 }
-const mapStateToProps = ({ assets, tags, search }) => ({
-  assets,
-  tags,
-  search
+
+const mapStateToProps = state => ({
+  assets: filterAssets(state),
+  tags: state.tags,
+  search: state.search,
+  subTags: state.subTags
 });
+
 export default connect(mapStateToProps, actions)(DashboardPage);
