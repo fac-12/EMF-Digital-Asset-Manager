@@ -45,14 +45,18 @@ const addingCategoryToAsset = createSelector(
 const filterBySearchTerm = createSelector(
   [getSearchTermFromLandingpage, addingCategoryToAsset],
   (searchTermFromLandingpage, assets) =>
-    assets.filter(asset => {
-      console.log(assets);
-      return Object.keys(asset).length === 0
-        ? false
-        : asset.name
-          .toLowerCase()
-          .includes(searchTermFromLandingpage.toLowerCase());
-    })
+    assets.filter(
+      asset =>
+        Object.keys(asset).length === 0
+          ? false
+          : asset.name
+            .toLowerCase()
+            .includes(
+              searchTermFromLandingpage
+                ? searchTermFromLandingpage.toLowerCase()
+                : ""
+            )
+    )
 );
 
 export const filterAssets = createSelector(

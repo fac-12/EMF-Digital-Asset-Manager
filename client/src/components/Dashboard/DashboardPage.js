@@ -7,12 +7,6 @@ import { filterAssets } from "../../selectors/filters";
 import CardDisplay from "../LandingPage/CardDisplay";
 import SearchBar from "../LandingPage/SearchBar";
 class DashboardPage extends Component {
-  componentDidMount() {
-    this.props.storeValueFromLandingPage("", () => {
-      return;
-    });
-  }
-
   onFilter = e => {
     this.props.setFilter(e.target.id);
   };
@@ -36,7 +30,10 @@ class DashboardPage extends Component {
 }
 
 const mapStateToProps = state => ({
-  assets: state.assets.length === 0 ? state.assets : filterAssets(state),
+  assets:
+    console.log(state.assets.length === 0) || state.assets.length === 0
+      ? state.assets
+      : filterAssets(state),
   tags: state.tags,
   searchTermFromLandingPage: state.searchTermFromLandingPage,
   subTags: state.subTags
