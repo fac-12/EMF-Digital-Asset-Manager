@@ -101,8 +101,7 @@ export const filterAssets = createSelector(
       );
 
     case "MATERIALS":
-      return;
-      _.filter(assets, asset => asset.category.includes("MATERIALS"));
+      return _.filter(assets, asset => asset.category.includes("MATERIALS"));
 
     case "TECHNICAL CYCLE":
       return _.filter(assets, asset =>
