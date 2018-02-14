@@ -7,10 +7,7 @@ const getTags = state =>
 const getSubTags = state =>
   Object.keys(state.subTags).length === 0 ? null : state.subTags;
 const getFilter = state => state.filters;
-const getSearchTermFromLandingpage = state =>
-  state.searchTermFromLandingPage.length === 0
-    ? null
-    : state.searchTermFromLandingPage.searchValue;
+const getSearchTermFromLandingpage = state => state.searchTermFromLandingPage;
 
 const addingCategoryToAsset = createSelector(
   [getAssets, getTags, getSubTags],
