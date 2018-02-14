@@ -1,14 +1,16 @@
 import { combineReducers } from "redux";
 import assets from "./assets";
 import tags from "./tags";
-import search from "./search";
+import searchTermFromLandingPage from "./searchFromLandingPage";
+import searchTermFromDashboardPage from "./searchFromDashboardPage";
 import subTags from "./subTags";
 import filters from "./filters";
 
 const rootReducer = combineReducers({
   assets,
   tags,
-  search,
+  searchTermFromDashboardPage,
+  searchTermFromLandingPage,
   subTags,
   filters
 });

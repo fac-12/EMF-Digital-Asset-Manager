@@ -7,6 +7,14 @@ const getTags = state =>
 const getSubTags = state =>
   Object.keys(state.subTags).length === 0 ? null : state.subTags;
 const getFilter = state => state.filters;
+const getSearchTermFromDashboard = state =>
+  state.searchTermFromDashboardPage.length === 0
+    ? null
+    : state.searchTermFromDashboardPage.searchValue;
+const getSearchTermFromLandingpage = state =>
+  state.searchTermFromLandingPage.length === 0
+    ? null
+    : state.searchTermFromLandingPage.searchValue;
 
 const addingCategoryToAsset = createSelector(
   [getAssets, getTags, getSubTags],
@@ -38,10 +46,35 @@ const addingCategoryToAsset = createSelector(
   }
 );
 
-export const filterAssets = createSelector(
-  [getFilter, addingCategoryToAsset],
-  (assetsFilters, assets) => {
+const filterBySearchTerm = createSelector(
+  [
+    getSearchTermFromDashboard,
+    getSearchTermFromLandingpage,
+    addingCategoryToAsset
+  ],
+  (searchTermFromDashboard, searchTermFromLandingpage, assets) => {
+    if (assets === "hello" || Object.values(assets).length === 0) {
+      return ["hello"];
+    }
+
     assets = assets.filter(asset => asset.hasOwnProperty("id"));
+    console.log("I'm in filter: ", assets);
+    return _.filter(assets, asset => {
+      return asset.name
+        .toLowerCase()
+        .includes(
+          (searchTermFromLandingpage.length > 0
+            ? searchTermFromLandingpage
+            : searchTermFromDashboard
+          ).toLowerCase()
+        );
+    });
+  }
+);
+
+export const filterAssets = createSelector(
+  [getFilter, filterBySearchTerm],
+  (assetsFilters, assets) => {
     switch (assetsFilters) {
       case "BIOCYCLE":
         return _.filter(assets, asset => asset.category.includes("BIOCYCLE"));

@@ -1,10 +1,18 @@
-import { SEARCH_VALUE, SELECT_FILTER } from "./types";
+import {
+  SEARCH_VALUE_LANDINGPAGE,
+  SEARCH_VALUE_DASHBOARDPAGE,
+  SELECT_FILTER
+} from "./types";
 
 export { getAllAssets, getAllSubTags, getAllTags } from "./assetsActions";
 
-export const storeValue = (value, callback) => dispatch => {
-  dispatch({ type: SEARCH_VALUE, payload: value });
+export const storeValueFromLandingPage = (value, callback) => dispatch => {
+  dispatch({ type: SEARCH_VALUE_LANDINGPAGE, payload: value });
   callback();
+};
+
+export const storeValueFromDashboardPage = value => dispatch => {
+  dispatch({ type: SEARCH_VALUE_DASHBOARDPAGE, payload: value });
 };
 
 export const setFilter = filter => dispatch => {

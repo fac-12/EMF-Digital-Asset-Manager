@@ -15,6 +15,7 @@ class DashboardPage extends Component {
   }
 
   updateSearch = e => {
+    this.storeValueFromDashboardPage(e.target.value);
     this.setState({ search: e.target.value });
   };
 
@@ -29,7 +30,7 @@ class DashboardPage extends Component {
           <input
             className="dashboard-search-bar"
             type="text"
-            value={this.state.search}
+            value={this.state.value}
             onChange={this.updateSearch}
             placeholder="How can I be more..."
           />
@@ -49,7 +50,9 @@ class DashboardPage extends Component {
 const mapStateToProps = state => ({
   assets: filterAssets(state),
   tags: state.tags,
-  search: state.search,
+
+  searchTermFromDashboardPage: state.searchTermFromDashboardPage,
+  searchTermFromLandingPage: state.searchTermFromLandingPage,
   subTags: state.subTags
 });
 
