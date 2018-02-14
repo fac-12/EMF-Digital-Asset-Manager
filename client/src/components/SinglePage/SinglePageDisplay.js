@@ -13,7 +13,7 @@ class SinglePageDisplay extends Component {
 
   render() {
     const { id } = this.props.match.params;
-    const { assets } = this.props;
+    const { assets,subTags } = this.props;
 
     if (!assets[id]) {
       return <div>loading</div>;
@@ -64,7 +64,7 @@ class SinglePageDisplay extends Component {
             <div className="bottom-right-div">
               <h3>Categories</h3>
               {tags.length
-                ? tags.map(tag => <span key={tag}>{tag} </span>)
+                ? tags.map(tag => <span key={tag}>{subTags[tag].name}{" "} </span>)
                 : null}
             </div>
             {file ? (
@@ -83,5 +83,5 @@ class SinglePageDisplay extends Component {
   }
 }
 
-const mapStateToProps = ({ assets }) => ({ assets });
+const mapStateToProps = ({ assets,subTags }) => ({ assets,subTags });
 export default connect(mapStateToProps)(SinglePageDisplay);
