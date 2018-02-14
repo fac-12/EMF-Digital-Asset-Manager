@@ -30,10 +30,7 @@ class DashboardPage extends Component {
 }
 
 const mapStateToProps = state => ({
-  assets:
-    console.log(state.assets.length === 0) || state.assets.length === 0
-      ? state.assets
-      : filterAssets(state),
+  assets: state.assets.length === 0 ? state.assets : filterAssets(state),
   tags: state.tags,
   searchTermFromLandingPage: state.searchTermFromLandingPage,
   subTags: state.subTags
