@@ -1,12 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import renderImage from "../../helper/fileImages";
-// import pdf from "../../images/pdf.svg";
-// import mp4 from "../../images/video-player.svg";
-// import zip from "../../images/zip.svg";
-// import picture from "../../images/picture.svg";
-// import webm from "../../images/video-player.svg";
-// import link from "../../images/link.svg";
+
 
 
 class SinglePageDisplay extends Component {
