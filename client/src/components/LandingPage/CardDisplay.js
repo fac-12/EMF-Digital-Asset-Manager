@@ -12,11 +12,12 @@ export default ({ assets, end }) => {
         <Link to={`/Dashboard/${asset.id}`}>
           <section className="card">
         <div className="top">
-
-
+          <span>
+            {asset.category
+            .filter((tag,i,arr)=> arr.indexOf(tag)===1)
+            .map(tag=> `${tag}`)}  
+          </span>
             {renderImage(asset)}
-        
-
         </div>
 
         <div >

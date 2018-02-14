@@ -156,8 +156,8 @@ a {
   width:5rem;
 height:5rem;
 align-self: center;
- width:100%;
- height: 100%;
+ width:50%;
+ height: 50%;
 }
 /*calc(100vh - 6rem);*/
 .single-main-div{
