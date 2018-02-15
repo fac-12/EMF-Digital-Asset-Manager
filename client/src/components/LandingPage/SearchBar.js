@@ -34,7 +34,7 @@ class SearchBar extends Component {
         />
         <span>
           <button type="submit" className="submit-btn">
-            submit
+            Go
           </button>
         </span>
       </form>

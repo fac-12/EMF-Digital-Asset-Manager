@@ -6,9 +6,10 @@ import zip from "../images/zip.svg";
 import picture from "../images/picture.svg";
 import webm from "../images/video-player.svg";
 import link from "../images/link.svg";
+import back from "../images/left-arrow.svg";
 
-export  default (file)=> {
-   switch (file.filetype) {
+export default file => {
+  switch (file.filetype ? file.filetype : file) {
 
                case "video/mp4": {
                    return (<img className="img-container"  src={mp4}  alt={`${file.filetype}`} />);
@@ -24,6 +25,10 @@ export  default (file)=> {
                }
       case "image/jpeg": {
                    return (  <img className="img-container"  src={picture}  alt={`${file.filetype}`} />);
+               }
+      case "back-btn": {
+                 return (
+                   <img className="back-btn" src={back} alt="back button to dashboard" /> );
                }
 
       case  null: {
