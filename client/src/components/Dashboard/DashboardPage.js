@@ -7,26 +7,18 @@ import { filterAssets } from "../../selectors/filters";
 import CardDisplay from "../LandingPage/CardDisplay";
 import SearchBar from "../LandingPage/SearchBar";
 class DashboardPage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      selectedCategory:"",
-    };
-  }
   onFilter = e => {
     this.props.setFilter(e.target.id);
-    this.setState({selectedCategory: this.props.filters})
   };
 
   render() {
-    console.log("this.props");
     return (
       <div className="dashboard-container">
         <div className="dashboard-search-bar-container">
           <SearchBar />
         </div>
         <ul className="tags-container">
-          <FilterOptions tags={this.props.tags} onClick={this.onFilter} selected={this.state.selectedCategory===this.props.filters ? "filter-selected"  : "filter-tag"} />
+          <FilterOptions tags={this.props.tags} onClick={this.onFilter} />
         </ul>
 
         <ul className="dashboard-card-container">
