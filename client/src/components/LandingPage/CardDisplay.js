@@ -2,8 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import renderImage from "../../helper/fileImages";
 import arrow from "../../images/arrow-button.svg";
+import _ from "lodash";
+import { v4 } from "uuid";
 
-export default ({ assets, end }) => {
+export default ({ assets, end, subtags }) => {
   return Object.values(assets)
     .slice(0, end)
     .map(asset => {
@@ -13,15 +15,19 @@ export default ({ assets, end }) => {
             <section className="card">
               <div className="top">
                 <span>
-                  {asset.category
-                    .filter((tag, i, arr) => arr.indexOf(tag) === i)
-                    .map(tag => `${tag} `)}
+                  <ul>
+                    {asset.tags.slice(0, 3).map(tag => (
+                      <li key={v4()}>
+                        {subtags[tag].name}
+                        {` `}
+                      </li>
+                    ))}
+                  </ul>
                 </span>
                 {renderImage(asset)}
               </div>
 
               <div>
-                <span>{asset.tag}</span>
                 <div className="bottom">
                   <span>{asset.name}</span>
                   <img src={arrow} className="image2" />
