@@ -4,6 +4,7 @@ import CardDisplay from "./CardDisplay";
 import * as actions from "../../actions";
 import SearchBar from "./SearchBar";
 import LandingPageInfo from "./LandingPageInfo";
+import { filterAssets } from "../../selectors/filters";
 
 class LandingPage extends Component {
   render() {
@@ -20,5 +21,7 @@ class LandingPage extends Component {
     );
   }
 }
-const mapStateToProps = ({ assets }) => ({ assets });
+const mapStateToProps = state => ({
+  assets: state.assets.length === 0 ? state.assets : filterAssets(state)
+});
 export default connect(mapStateToProps, actions)(LandingPage);

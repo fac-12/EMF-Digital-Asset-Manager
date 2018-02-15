@@ -14,8 +14,8 @@ export default ({ assets, end, subtags }) => {
               <div className="top">
                 <span>
                   {asset.category
-                    .filter((tag, i, arr) => arr.indexOf(tag) === 1)
-                    .map(tag => `${tag}`)}
+                    .filter((tag, i, arr) => arr.indexOf(tag) === i)
+                    .map(tag => `${tag} `)}
                 </span>
                 {renderImage(asset)}
               </div>

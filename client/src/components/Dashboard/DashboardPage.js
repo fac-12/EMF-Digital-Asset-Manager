@@ -37,7 +37,8 @@ const mapStateToProps = state => ({
   assets: state.assets.length === 0 ? state.assets : filterAssets(state),
   tags: state.tags,
   searchTermFromLandingPage: state.searchTermFromLandingPage,
-  subTags: state.subTags
+  subTags: state.subTags,
+  filters: state.filters
 });
 
 export default connect(mapStateToProps, actions)(DashboardPage);
