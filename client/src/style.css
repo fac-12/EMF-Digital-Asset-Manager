@@ -353,3 +353,9 @@ a {
   background: #f2c94c;
   color: #fff;
 }
+
+.filter-selected {
+  border: none;
+  background: #f2c94c;
+  color: #fff;
+}
