@@ -28,7 +28,7 @@ class SinglePageDisplay extends Component {
             <div>
               <h3>{name}</h3>
             </div>
-            {renderImage({ filetype })}
+            <div className="img-single">{renderImage({ filetype })}</div>
           </div>
 
           <div className="main-right-div">
@@ -44,29 +44,41 @@ class SinglePageDisplay extends Component {
                   Last Edited:{new Date(last_edit_at).toLocaleDateString()}
                 </div>
               ) : null}
-              {link ? <div>Link To File:{link}</div> : null}
+              {link ? (
+                <div>
+                  Link To File:<a className="single-link" href={link}>
+                    {link}
+                  </a>
+                </div>
+              ) : null}
               {locations.length
                 ? locations.map(location => (
-                    <div key={location}>{location}</div>
-                  ))
+                  <div key={location}>{location}</div>
+                ))
                 : null}
             </div>
 
             <div className="bottom-right-div">
               <h3>Categories</h3>
               {tags.length
-                ? tags.map(tag => <span key={tag}>{subTags[tag].name} </span>)
+                ? tags.slice(0, 3).map(tag => (
+                  <span className="cat-tag" key={tag}>
+                    {subTags[tag].name}{" "}
+                  </span>
+                ))
                 : null}
             </div>
-            {file ? (
-              <a className="link-button" href={file} target="_blank">
-                view{" "}
-              </a>
-            ) : (
-              <a href={link} target="_blank">
-                view{" "}
-              </a>
-            )}
+            <div className="btn-container">
+              {file ? (
+                <a className="link-button" href={file} target="_blank">
+                  view{" "}
+                </a>
+              ) : (
+                <a className="link-button" href={link} target="_blank">
+                  view{" "}
+                </a>
+              )}
+            </div>
           </div>
         </div>
       </div>
