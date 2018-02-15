@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { filter } from "lodash";
 import * as actions from "../../actions";
 import FilterOptions from "./FilterOptions";
 import { filterAssets } from "../../selectors/filters";

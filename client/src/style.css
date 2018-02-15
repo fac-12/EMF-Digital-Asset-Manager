@@ -60,6 +60,7 @@ a {
   border-radius: 0rem 0.4rem 0.4rem 0rem;
   background-color: #f2c94c;
   border: none;
+  font-size: 1rem;
   color: #fff;
 }
 
@@ -178,7 +179,8 @@ a {
 .dashboard-card-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+
+  justify-content: flex-start;
 }
 
 /* singlePage styling  */
@@ -289,7 +291,8 @@ a {
   }
 }
 
-.cardTry {
+.cardTry,
+.subTags {
   display: flex;
   flex-direction: column;
   font-size: 0.8rem;
@@ -300,17 +303,17 @@ a {
   justify-content: center;
   animation: fadein ease-in 1;
   animation-fill-mode: forwards;
-  animation-duration: 1s;
+  animation-duration: 2s;
 
   opacity: 0;
   &:nth-child(1) {
     animation-delay: 0.4s;
   }
   &:nth-child(2) {
-    animation-delay: 0.9s;
+    animation-delay: 0.8s;
   }
   &:nth-child(3) {
-    animation-delay: 1.7s;
+    animation-delay: 1.6s;
   }
   &:nth-child(4) {
     animation-delay: 2.4s;
@@ -358,4 +361,32 @@ a {
   border: none;
   background: #f2c94c;
   color: #fff;
+}
+
+.subTags {
+  display: flex;
+  justify-content: flex-start;
+  margin: 2rem 1rem;
+  font-size: 1.5rem;
+  color: #f2f2f2;
+}
+
+.back-btn {
+  margin: 1rem;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 5rem;
+  padding: 1.5rem;
+}
+
+.back-btn:hover {
+  background: #fff;
+}
+
+.tag-name {
+  font-weight: 300;
+}
+
+.asset-name {
+  font-weight: bold;
 }
