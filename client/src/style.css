@@ -80,6 +80,12 @@ a {
   padding: 1rem;
 }
 
+.dashboard-assets-title {
+  display: flex;
+  justify-content: center;
+  color: #fff;
+}
+
 /* Card styling */
 
 .card-container {
@@ -214,6 +220,7 @@ a {
 .top-right-div div a {
   display: block;
   margin: 0.25rem 0;
+  font-size: 0.8rem;
 }
 
 .single-link:hover {

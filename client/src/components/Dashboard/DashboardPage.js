@@ -17,6 +17,246 @@ class DashboardPage extends Component {
     this.setState({ selectedCategory: e.target.id });
   };
 
+  renderTitle = () => {
+    switch (this.props.filters) {
+      case "ALL":
+        return (
+          <h1>
+            {" "}
+            {this.props.assets.length ? (
+              <h1>
+                {" "}
+                {this.props.filters} ({this.props.assets.length})
+              </h1>
+            ) : (
+              <h1>Loading...</h1>
+            )}
+          </h1>
+        );
+      case "BIOCYCLE":
+        return (
+          <h1>
+            {this.props.assets.length ? (
+              <h1>
+                {" "}
+                {this.props.filters} ({this.props.assets.length})
+              </h1>
+            ) : (
+              <h1>
+                No assets with the tag {this.props.filters} related to your
+                search term {this.props.searchTermFromLandingPage.searchValue}
+              </h1>
+            )}
+          </h1>
+        );
+      case "BUILT ENVIRONMENT":
+        return (
+          <h1>
+            {this.props.assets.length ? (
+              <h1>
+                {" "}
+                {this.props.filters} ({this.props.assets.length})
+              </h1>
+            ) : (
+              <h1>
+                No assets with the tag {this.props.filters} related to your
+                search term {this.props.searchTermFromLandingPage.searchValue}
+              </h1>
+            )}
+          </h1>
+        );
+      case "BUSINESS":
+        return (
+          <h1>
+            {this.props.assets.length ? (
+              <h1>
+                {" "}
+                {this.props.filters} ({this.props.assets.length})
+              </h1>
+            ) : (
+              <h1>
+                No assets with the tag {this.props.filters} related to your
+                search term {this.props.searchTermFromLandingPage.searchValue}
+              </h1>
+            )}
+          </h1>
+        );
+
+      case "DESIGN":
+        return (
+          <h1>
+            {this.props.assets.length ? (
+              <h1>
+                {" "}
+                {this.props.filters} ({this.props.assets.length})
+              </h1>
+            ) : (
+              <h1>
+                No assets with the tag {this.props.filters} related to your
+                search term {this.props.searchTermFromLandingPage.searchValue}
+              </h1>
+            )}
+          </h1>
+        );
+
+      case "ECONOMICS":
+        return (
+          <h1>
+            {this.props.assets.length ? (
+              <h1>
+                {" "}
+                {this.props.filters} ({this.props.assets.length})
+              </h1>
+            ) : (
+              <h1>
+                No assets with the tag {this.props.filters} related to your
+                search term {this.props.searchTermFromLandingPage.searchValue}
+              </h1>
+            )}
+          </h1>
+        );
+
+      case "EDUCATION (LEARNING)":
+        return (
+          <h1>
+            {this.props.assets.length ? (
+              <h1>
+                {" "}
+                {this.props.filters} ({this.props.assets.length})
+              </h1>
+            ) : (
+              <h1>
+                No assets with the tag {this.props.filters} related to your
+                search term {this.props.searchTermFromLandingPage.searchValue}
+              </h1>
+            )}
+          </h1>
+        );
+
+      case "ENERGY":
+        return (
+          <h1>
+            {this.props.assets.length ? (
+              <h1>
+                {" "}
+                {this.props.filters} ({this.props.assets.length})
+              </h1>
+            ) : (
+              <h1>
+                No assets with the tag {this.props.filters} related to your
+                search term {this.props.searchTermFromLandingPage.searchValue}
+              </h1>
+            )}
+          </h1>
+        );
+
+      case "FINANCE & LEGAL":
+        return (
+          <h1>
+            {this.props.assets.length ? (
+              <h1>
+                {" "}
+                {this.props.filters} ({this.props.assets.length})
+              </h1>
+            ) : (
+              <h1>
+                No assets with the tag {this.props.filters} related to your
+                search term {this.props.searchTermFromLandingPage.searchValue}
+              </h1>
+            )}
+          </h1>
+        );
+
+      case "GOVERNMENT":
+        return (
+          <h1>
+            {this.props.assets.length ? (
+              <h1>
+                {" "}
+                {this.props.filters} ({this.props.assets.length})
+              </h1>
+            ) : (
+              <h1>
+                No assets with the tag {this.props.filters} related to your
+                search term {this.props.searchTermFromLandingPage.searchValue}
+              </h1>
+            )}
+          </h1>
+        );
+
+      case "MANUFACTURING & ENGINEERING":
+        return (
+          <h1>
+            {this.props.assets.length ? (
+              <h1>
+                {" "}
+                {this.props.filters} ({this.props.assets.length})
+              </h1>
+            ) : (
+              <h1>
+                No assets with the tag {this.props.filters} related to your
+                search term {this.props.searchTermFromLandingPage.searchValue}
+              </h1>
+            )}
+          </h1>
+        );
+
+      case "MATERIALS":
+        return (
+          <h1>
+            {this.props.assets.length ? (
+              <h1>
+                {" "}
+                {this.props.filters} ({this.props.assets.length})
+              </h1>
+            ) : (
+              <h1>
+                No assets with the tag {this.props.filters} related to your
+                search term {this.props.searchTermFromLandingPage.searchValue}
+              </h1>
+            )}
+          </h1>
+        );
+
+      case "TECHNICAL CYCLE":
+        return (
+          <h1>
+            {this.props.assets.length ? (
+              <h1>
+                {" "}
+                {this.props.filters} ({this.props.assets.length})
+              </h1>
+            ) : (
+              <h1>
+                No assets with the tag {this.props.filters} related to your
+                search term {this.props.searchTermFromLandingPage.searchValue}
+              </h1>
+            )}
+          </h1>
+        );
+
+      case "TECHNOLOGY":
+        return (
+          <h1>
+            {this.props.assets.length ? (
+              <h1>
+                {" "}
+                {this.props.filters} ({this.props.assets.length})
+              </h1>
+            ) : (
+              <h1>
+                No assets with the tag {this.props.filters} related to your
+                search term {this.props.searchTermFromLandingPage.searchValue}
+              </h1>
+            )}
+          </h1>
+        );
+
+      default:
+        return <h1> Loading </h1>;
+    }
+  };
+
   render() {
     return (
       <div className="dashboard-container">
@@ -30,6 +270,7 @@ class DashboardPage extends Component {
             selected={this.state.selectedCategory}
           />
         </ul>
+        <div className="dashboard-assets-title">{this.renderTitle()}</div>
 
         <ul className="dashboard-card-container">
           <CardDisplay
