@@ -7,8 +7,15 @@ import { filterAssets } from "../../selectors/filters";
 import CardDisplay from "../LandingPage/CardDisplay";
 import SearchBar from "../LandingPage/SearchBar";
 class DashboardPage extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedCategory: "ALL"
+    };
+  }
   onFilter = e => {
     this.props.setFilter(e.target.id);
+    this.setState({ selectedCategory: e.target.id });
   };
 
   render() {
@@ -18,7 +25,11 @@ class DashboardPage extends Component {
           <SearchBar />
         </div>
         <ul className="tags-container">
-          <FilterOptions tags={this.props.tags} onClick={this.onFilter} />
+          <FilterOptions
+            tags={this.props.tags}
+            onClick={this.onFilter}
+            selected={this.state.selectedCategory}
+          />
         </ul>
 
         <ul className="dashboard-card-container">

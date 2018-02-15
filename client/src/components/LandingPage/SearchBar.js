@@ -29,7 +29,11 @@ class SearchBar extends Component {
         <input
           value={this.state.term}
           onChange={this.onInputChange}
-          placeholder={this.props.placeholder}
+          placeholder={
+            this.props.searchTermFromLandingPage.searchValue
+              ? this.props.searchTermFromLandingPage.searchValue
+              : "How can I be..."
+          }
           className="search-bar"
         />
         <span>
@@ -42,6 +46,10 @@ class SearchBar extends Component {
   }
 }
 
-const mapStateToProps = ({ assets, tags }) => ({ assets, tags });
+const mapStateToProps = ({ assets, tags, searchTermFromLandingPage }) => ({
+  assets,
+  tags,
+  searchTermFromLandingPage
+});
 
 export default withRouter(connect(mapStateToProps, actions)(SearchBar));
