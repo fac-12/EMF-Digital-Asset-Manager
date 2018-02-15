@@ -22,7 +22,11 @@ class DashboardPage extends Component {
         </ul>
 
         <ul className="dashboard-card-container">
-          <CardDisplay assets={this.props.assets} end={"20"} />
+          <CardDisplay
+            assets={this.props.assets}
+            subtags={this.props.subTags}
+            end={"20"}
+          />
         </ul>
       </div>
     );
