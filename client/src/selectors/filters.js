@@ -43,7 +43,6 @@ const filterBySearchTerm = createSelector(
   [getSearchTermFromLandingpage, addingCategoryToAsset],
   (searchTermFromLandingpage, assets) =>
     assets.filter(asset => {
-      console.log("filters", searchTermFromLandingpage);
       return Object.keys(asset).length === 0
         ? false
         : asset.name
