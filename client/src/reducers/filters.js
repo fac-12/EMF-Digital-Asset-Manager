@@ -1,4 +1,3 @@
-import _ from "lodash";
 import { SELECT_FILTER } from "../actions/types";
 
 export default function(state = "ALL", action) {

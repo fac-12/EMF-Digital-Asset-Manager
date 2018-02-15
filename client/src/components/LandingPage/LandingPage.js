@@ -13,6 +13,7 @@ class LandingPage extends Component {
         <div className="layer">
           <LandingPageInfo />
           <SearchBar placeholder="How can I be more..." />
+            <h2 className="subTags">Latest Assets</h2>
           <ul className="card-container">
             <CardDisplay
               assets={this.props.assets}
