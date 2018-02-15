@@ -14,7 +14,11 @@ class LandingPage extends Component {
           <LandingPageInfo />
           <SearchBar placeholder="How can I be more..." />
           <ul className="card-container">
-            <CardDisplay assets={this.props.assets} end={4} />
+            <CardDisplay
+              assets={this.props.assets}
+              subtags={this.props.subTags}
+              end={4}
+            />
           </ul>
         </div>
       </div>
@@ -22,6 +26,7 @@ class LandingPage extends Component {
   }
 }
 const mapStateToProps = state => ({
-  assets: state.assets.length === 0 ? state.assets : filterAssets(state)
+  assets: state.assets.length === 0 ? state.assets : filterAssets(state),
+  subTags: state.subTags
 });
 export default connect(mapStateToProps, actions)(LandingPage);

@@ -9,7 +9,7 @@ export default ({ tags, onClick }) => {
 
   return tagNames.map(tag => (
     <li key={v4()}>
-      <button onClick={onClick} id={tag}>
+      <button onClick={onClick} id={tag} className="filter-tag">
         {tag}
       </button>
     </li>
