@@ -276,7 +276,7 @@ class DashboardPage extends Component {
           <CardDisplay
             assets={this.props.assets}
             subtags={this.props.subTags}
-            end={"20"}
+            end={"154"}
           />
         </ul>
       </div>
